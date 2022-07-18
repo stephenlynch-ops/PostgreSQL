@@ -44,8 +44,24 @@ track_table = Table(
 with db.connect() as connection:
 
     # Query 1 - select all records from "Artist" table
-    select_query = artist_table.select()
+    # select_query = artist_table.select()
 
+    # Query 2 - select only the "name" column from the artist table
+    # select_query = artist_table.select().with_only_columns([artist_table.c.Name])
+
+    # Query 3 - select only "Queen" from the artist table
+    # select_query = artist_table.select().where(artist_table.c.Name == "Queen")
+
+    # Query 4 - select only by "ArtistId" #51 from the artist table
+    # select_query = artist_table.select().where(artist_table.c.ArtistId == 51)
+
+    # Query 5 - select only by "ArtistId" #51 from the artist table
+    # select_query = album_table.select().where(album_table.c.ArtistId == 51)
+
+    # Query 6 - select only by "composor" from the track table
+    select_query = track_table.select().where(track_table.c.Composer == "Queen")
+
+    # Prints out the results for the query we are running
     results = connection.execute(select_query)
     for result in results:
         print(result)
