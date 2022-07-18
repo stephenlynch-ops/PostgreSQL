@@ -53,10 +53,10 @@ with db.connect() as connection:
     # select_query = artist_table.select().where(artist_table.c.Name == "Queen")
 
     # Query 4 - select only by "ArtistId" #51 from the artist table
-    # select_query = artist_table.select().where(artist_table.c.ArtistId == 51)
+    select_query = artist_table.select().where(artist_table.c.ArtistId == 51)
 
     # Query 5 - select only by "ArtistId" #51 from the artist table
-    # select_query = album_table.select().where(album_table.c.ArtistId == 51)
+    select_query = album_table.select().where(album_table.c.ArtistId == 51)
 
     # Query 6 - select only by "composor" from the track table
     select_query = track_table.select().where(track_table.c.Composer == "Queen")
